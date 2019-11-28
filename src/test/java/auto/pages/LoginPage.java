@@ -16,6 +16,8 @@ public class LoginPage extends Services {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+    @FindBy(css = Elements.linkAuthentication)
+    private WebElement linkAuthentication;
 
     @FindBy(css = Elements.txtUserName)
     private WebElement txtUserName;
@@ -29,6 +31,11 @@ public class LoginPage extends Services {
     @FindBy(css = Elements.actualMsg)
     private WebElement actualMsg;
 
+
+
+    public void NavigatetoLogin() throws InterruptedException {
+        click(linkAuthentication);
+    }
     public void verifyLogin(String username, String password) throws InterruptedException {
 
         clearAndType(txtUserName, username);

@@ -10,13 +10,15 @@ public class TestLogin extends Init{
     public void testLoginSuccess() throws InterruptedException {
 
         LoginPage loginPage = new LoginPage(driver);
+        loginPage.NavigatetoLogin();
         loginPage.verifyLogin("tomsmith", "SuperSecretPassword!");
     }
 
     @Test
-    public void testLoginWithInvalidUser() {
+    public void testLoginWithInvalidUser() throws InterruptedException {
 
         LoginPage loginPage = new LoginPage(driver);
+        loginPage.NavigatetoLogin();
         loginPage.verifyLoginWithInvalidUser("abcdef", "abcdef");
     }
 

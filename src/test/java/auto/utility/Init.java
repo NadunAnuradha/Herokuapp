@@ -12,7 +12,7 @@ public class Init extends Driverbase {
     public void setUp() {
 
         driver = getDriver();
-        driver.get("http://the-internet.herokuapp.com/javascript_alerts");
+        driver.get("http://the-internet.herokuapp.com");
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
