@@ -8,8 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class FileUpload extends Services {
-    public FileUpload(WebDriver driver) {
+public class FileUploadPage extends Services {
+    public FileUploadPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }

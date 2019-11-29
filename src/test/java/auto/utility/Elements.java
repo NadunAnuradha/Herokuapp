@@ -6,6 +6,8 @@ public class Elements {
     public static final String linkAuthentication = "#content > ul > li:nth-child(21) > a";
     public static final String linkJsalerts = "#content > ul > li:nth-child(29) > a";
     public static final String linkFileupload = "#content > ul > li:nth-child(18) > a";
+    public static final String linkFrame = "#content > ul > li:nth-child(22) > a";
+    public static final String linkiFrame = "#content > div > ul > li:nth-child(2) > a";
 
     //Login Page Elements
     public static final String txtUserName = "#username";
@@ -22,7 +24,7 @@ public class Elements {
     public static final String btnJSPrompt = "#content > div > ul > li:nth-child(3) > button";
     public static final String null_MSG = "You entered: null";
 
-    // Welcome page Fileupload
+    // Fileupload page elements
     public static final String txtFileupload = "#file-upload";
     public static final String btnFilesubmit = "#file-submit";
     public static final String MSG_upload_Success = "File Uploaded!";
@@ -31,6 +33,9 @@ public class Elements {
     public static final String Result_upload_Filename = "#uploaded-files";
 
 
-
+    // iFrame page elements
+    public static final String Iframe = "#mce_0_ifr";
+    public static final String txtIframe = "#tinymce";
+    public static final String Iframetxt_String = "I love pizza";
 
 }

@@ -1,15 +1,17 @@
 package auto.testcases;
 
-import auto.pages.FileUpload;
+import auto.pages.FileUploadPage;
 import auto.utility.Init;
 import org.testng.annotations.Test;
 
-public class TestFileUpload extends Init {
+public class TestFileUpload extends Init{
 
-    @Test
-    public void testFileUpload() throws InterruptedException {
-        FileUpload fileUpload = new FileUpload(driver);
-        fileUpload.NavigatetoFileUpload();
-        fileUpload.verifyFileUpload();
+        @Test
+        public void testFileUpload() throws InterruptedException {
+            FileUploadPage fileUploadPage = new FileUploadPage(driver);
+            fileUploadPage.NavigatetoFileUpload();
+            fileUploadPage.verifyFileUpload();
+
     }
+
 }

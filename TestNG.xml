@@ -4,7 +4,7 @@
         <classes>
             <class name="auto.testcases.TestLogin"/>
             <class name="auto.testcases.TestJsAlert"/>
-            <class name="auto.testcases.TestFileUpload"/>
+            <class name="auto.testcases.TestFileUploadPage"/>
         </classes>
     </test>
 </suite>
