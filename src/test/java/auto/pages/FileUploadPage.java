@@ -1,7 +1,7 @@
 package auto.pages;
 
-import auto.utility.Elements;
 import auto.utility.Services;
+import auto.utility.Configfile;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,29 +13,27 @@ public class FileUploadPage extends Services {
         super(driver);
         PageFactory.initElements(driver, this);
     }
-    @FindBy(css = Elements.linkFileupload)
-    private WebElement linkFileupload;
 
-    @FindBy(css = Elements.txtFileupload)
+    final static  String MSG_upload_Success = "File Uploaded!";
+    final static  String Upload_FileName = "burrito.jpg";
+
+    @FindBy(css = "#file-upload")
     private WebElement txtFileupload;
 
-    @FindBy(css = Elements.btnFilesubmit)
+    @FindBy(css = "#file-submit")
     private WebElement btnFilesubmit;
 
-    @FindBy(css = Elements.Result_upload)
+    @FindBy(css = "#content > div > h3")
     private WebElement Result_upload;
 
-    @FindBy(css = Elements.Result_upload_Filename)
+    @FindBy(css = "#uploaded-files")
     private WebElement Result_upload_Filename;
 
-    public void NavigatetoFileUpload() throws InterruptedException {
-        click(linkFileupload);
-    }
 
     public void verifyFileUpload() throws InterruptedException{
-        clearAndType(txtFileupload, "C:\\Exilesoft\\Herokuapp\\burrito.jpg");
+        clearAndType(txtFileupload, Configfile.fileuploadpath);
         btnFilesubmit.click();
-        Assert.assertEquals(getText(Result_upload), Elements.MSG_upload_Success);
-        Assert.assertEquals(getText(Result_upload_Filename), Elements.Upload_FileName);
+        Assert.assertEquals(getText(Result_upload), MSG_upload_Success);
+        Assert.assertEquals(getText(Result_upload_Filename), Upload_FileName);
     }
 }

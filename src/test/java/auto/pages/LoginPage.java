@@ -1,8 +1,6 @@
 package auto.pages;
 
-
 import auto.utility.Services;
-import auto.utility.Elements;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,33 +14,31 @@ public class LoginPage extends Services {
         super(driver);
         PageFactory.initElements(driver, this);
     }
-    @FindBy(css = Elements.linkAuthentication)
-    private WebElement linkAuthentication;
 
-    @FindBy(css = Elements.txtUserName)
+    final static String MSG_SUCCESS = "You logged into a secure area!";
+    final static String MSG_ERROR = "Your username is invalid!";
+
+
+    @FindBy(css = "#username")
     private WebElement txtUserName;
 
-    @FindBy(css = Elements.txtPassword)
+    @FindBy(css = "#password")
     private WebElement txtPassword;
 
-    @FindBy(css = Elements.btnLogin)
+    @FindBy(css = "button.radius")
     private WebElement btnLogin;
 
-    @FindBy(css = Elements.actualMsg)
+    @FindBy(css = "#flash")
     private WebElement actualMsg;
 
 
-
-    public void NavigatetoLogin() throws InterruptedException {
-        click(linkAuthentication);
-    }
     public void verifyLogin(String username, String password) throws InterruptedException {
 
         clearAndType(txtUserName, username);
         clearAndType(txtPassword, password);
         click(btnLogin);
-        assertTrue(getText(actualMsg).contains(Elements.MSG_SUCCESS),
-                "Actual '" + getText(actualMsg) + "' should be same as expected '" + Elements.MSG_SUCCESS + "'.");
+        assertTrue(getText(actualMsg).contains(MSG_SUCCESS),
+                "Actual '" + getText(actualMsg) + "' should be same as expected '" + MSG_ERROR + "'.");
     }
 
     public void verifyLoginWithInvalidUser(String username, String password) {
@@ -50,7 +46,7 @@ public class LoginPage extends Services {
         clearAndType(txtUserName, username);
         clearAndType(txtPassword, password);
         click(btnLogin);
-        assertTrue(getText(actualMsg).contains(Elements.MSG_ERROR),
-                "Actual '" + getText(actualMsg) + "' should be same as expected '" + Elements.MSG_ERROR + "'.");
+        assertTrue(getText(actualMsg).contains(MSG_ERROR),
+                "Actual '" + getText(actualMsg) + "' should be same as expected '" + MSG_ERROR + "'.");
     }
 }

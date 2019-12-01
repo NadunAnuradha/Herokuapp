@@ -3,13 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-/**
- * Created with IntelliJ IDEA.
- * User: nil
- * Date: 11/27/19
- * Time: 6:50 PM
- * To change this template use File | Settings | File Templates.
- */
+
 public class Services {
 
     protected WebDriver driver;

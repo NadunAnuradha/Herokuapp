@@ -1,6 +1,5 @@
 package auto.pages;
 
-import auto.utility.Elements;
 import auto.utility.Services;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,31 +13,19 @@ public class IFramepage extends Services {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = Elements.linkFrame)
-    private WebElement linkFrame;
+    final static String Iframetxt_String = "I love pizza";
 
-    @FindBy(css = Elements.linkiFrame)
-    private WebElement linkiFrame;
-
-    @FindBy(css = Elements.Iframe)
+    @FindBy(css = "#mce_0_ifr")
     private WebElement Iframe;
 
-    @FindBy(css = Elements.txtIframe)
+    @FindBy(css = "#tinymce")
     private WebElement txtIframe;
 
-    @FindBy(css = Elements.Iframetxt_String)
-    private WebElement Iframetxt_String;
-
-
-    public void NavigatetIFrame() throws InterruptedException {
-        click(linkFrame);
-        click(linkiFrame);
-    }
 
     public void AccessIFrame() throws InterruptedException {
 
         driver.switchTo().frame(Iframe);
         clearAndType(txtIframe, "I love pizza");
-        Assert.assertEquals(getText(txtIframe), Elements.Iframetxt_String);
+        Assert.assertEquals(getText(txtIframe), Iframetxt_String);
     }
 }

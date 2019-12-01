@@ -1,6 +1,6 @@
 package auto.pages;
 
-import auto.utility.Elements;
+
 import auto.utility.Services;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
@@ -16,27 +16,27 @@ public class JsAlertPage extends Services {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = Elements.linkJsalerts)
-    private WebElement linkJsalerts;
 
-    @FindBy(css = Elements.btnJSconfirm)
+    final static  String SUCCESS_MSG = "You clicked: Ok";
+    final static  String null_MSG = "You entered: null";
+
+
+    @FindBy(css = "#content > div > ul > li:nth-child(2) > button")
     private WebElement btnJSconfirm;
 
-    @FindBy(css = Elements.btnJSPrompt)
+    @FindBy(css = "#content > div > ul > li:nth-child(3) > button")
     private WebElement btnJSPrompt;
 
-    @FindBy(css = Elements.JsresultMsg)
+    @FindBy(css = "#result")
     private WebElement JsresultMsg;
 
-    public void NavigatetJsAlert() throws InterruptedException {
-        click(linkJsalerts);
-    }
+
 
     public void VerifyJsConfirm() throws InterruptedException {
         btnJSconfirm.click();
         Alert alert = driver.switchTo().alert();
         alert.accept();
-        Assert.assertEquals(getText(JsresultMsg), Elements.SUCCESS_MSG);
+        Assert.assertEquals(getText(JsresultMsg), SUCCESS_MSG);
 
     }
 
@@ -44,7 +44,7 @@ public class JsAlertPage extends Services {
         btnJSPrompt.click();
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
-        Assert.assertEquals(getText(JsresultMsg), Elements.null_MSG);
+        Assert.assertEquals(getText(JsresultMsg), null_MSG);
 
     }
 
